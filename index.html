@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>네온 아레나 v3.27</title>
+<title>네온 아레나 v3.28</title>
 <style>
 :root{--bg:#0b1020;--fg:#eaf2ff;--ac:#ff4655;--cy:#3df2ff;--pn:rgba(8,12,26,.78)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1020;--fg:#eaf2ff;--ac:#ff4655;--cy:#3df2ff;--pn:rgba(8,12,26,.78)}}
@@ -114,6 +114,13 @@ button:focus-visible{outline:3px solid var(--cy);outline-offset:3px}#device{posi
 #mbSkill2{right:187px;bottom:102px;width:48px;height:48px;font-size:12px}
 #mbNext{right:25px;bottom:210px;width:54px;height:54px;font-size:12px}
 #mbEmote{right:26px;bottom:278px;width:60px;height:50px;border-radius:18px;font-size:12px}
+#mbCrouch{right:117px;bottom:174px;width:56px;height:56px;font-size:11px}
+#mbWalk{right:187px;bottom:160px;width:48px;height:48px;font-size:11px}
+#mbMore{right:117px;bottom:240px;width:56px;height:50px;border-radius:16px;font-size:11px}
+.mbtn.on{background:rgba(61,242,255,.65);color:#07111c}
+#mmore{display:none;position:absolute;right:250px;bottom:16px;grid-template-columns:repeat(2,auto);gap:6px;padding:8px;background:rgba(8,12,26,.9);border:1px solid rgba(255,255,255,.35);border-radius:12px;pointer-events:auto;z-index:6}
+#mmore .mbtn{position:static;border-radius:10px;width:auto;height:42px;padding:0 10px;font-size:12px;white-space:nowrap}
+#mmTrain{display:none}body.training #mmTrain{display:block}
 body.mobile.playing #mlook{pointer-events:auto}
 body.mobile.playing #mcontrols{display:block}
 body.mobile #menu .pn{width:min(92vw,460px);max-height:90vh;overflow:auto;padding:22px 18px}
@@ -155,8 +162,8 @@ body.mobile .pn h1{font-size:34px}
  <div class="cl" id="cT"></div><div class="cl" id="cB"></div><div class="cl" id="cL"></div><div class="cl" id="cR"></div><div id="cD"></div><div id="ret"></div>
  <canvas id="mm" width="160" height="160"></canvas><div id="hi"></div><div id="sb"></div><div id="png"></div><div id="hm"></div><div id="vg"></div><div id="bn"></div><div id="scope"></div><div id="wb"></div><div id="kf"></div><div id="km"><svg viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="29" fill="rgba(8,12,26,.78)" stroke="#ff4655" stroke-width="3"/><path d="M32 14c-9 0-15 6-15 14 0 5 2 8 5 10v6h20v-6c3-2 5-5 5-10 0-8-6-14-15-14z" fill="#fff"/><circle cx="26" cy="29" r="4" fill="#0b1020"/><circle cx="38" cy="29" r="4" fill="#0b1020"/><path d="M32 34l-2.5 5h5z" fill="#0b1020"/><path d="M27 44v-3M32 44v-3M37 44v-3" stroke="#0b1020" stroke-width="2"/></svg></div><div id="sk"></div><div id="resp">전투 불능 · <b id="rs">5</b>초 후 부활</div>
 </div>
-<div id="mlook" aria-label="화면을 드래그해 조준"></div><div id="mcontrols"><div id="joy" aria-label="이동 조이스틱"><div id="joyknob"></div></div><button class="mbtn" id="mbFire">발사</button><button class="mbtn" id="mbAim">조준</button><button class="mbtn" id="mbJump">점프</button><button class="mbtn" id="mbReload">재장전</button><button class="mbtn" id="mbSkill1">Q</button><button class="mbtn" id="mbSkill2">E</button><button class="mbtn" id="mbNext">무기</button><button class="mbtn" id="mbEmote">이모트</button></div><div id="menu"><div class="pn">
- <h1 id="mt">네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.27</small></h1>
+<div id="mlook" aria-label="화면을 드래그해 조준"></div><div id="mcontrols"><div id="joy" aria-label="이동 조이스틱"><div id="joyknob"></div></div><button class="mbtn" id="mbFire">발사</button><button class="mbtn" id="mbAim">조준</button><button class="mbtn" id="mbJump">점프</button><button class="mbtn" id="mbReload">재장전</button><button class="mbtn" id="mbSkill1">Q</button><button class="mbtn" id="mbSkill2">E</button><button class="mbtn" id="mbNext">무기</button><button class="mbtn" id="mbEmote">이모트</button><button class="mbtn" id="mbCrouch">웅크리기</button><button class="mbtn" id="mbWalk">걷기</button><button class="mbtn" id="mbMore">더보기</button><div id="mmore"><button class="mbtn" id="mmSb">점수판</button><button class="mbtn" id="mmCh">조준점</button><button class="mbtn" id="mmInspect">무기 보기</button><button class="mbtn" id="mmMenu">메뉴</button><button class="mbtn" id="mmTrain">쿨타임 초기화</button></div></div><div id="menu"><div class="pn">
+ <h1 id="mt">네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.28</small></h1>
  <p id="ms">5 대 5 팀 데스매치! 먼저 30킬을 달성한 팀이 승리해요.</p><div id="onlineOpts" style="display:none"><label><input id="ownInvuln" type="checkbox"> 내 무적</label> <label><input id="ownRespawn" type="checkbox"> 내 즉시 부활</label><p>ESC를 다시 누르거나 계속하기를 눌러 돌아가세요.</p></div>
  <table>
   <tr><td>WASD</td><td>이동 (Shift: 조용히 걷기)</td></tr>
@@ -178,12 +185,12 @@ body.mobile .pn h1{font-size:34px}
  <div id="res"></div><button id="go">게임 시작</button><button id="tr">홈으로</button>
 </div></div>
 <div id="lobby" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.94);z-index:8"><div class="pn"><h1>온라인</h1><p id="lm">친구들과 같은 방에서 싸워요 (최대 10명). 빈자리는 봇이 채워요.</p><div id="lc"><button id="lcr">방 만들기</button><br><input id="lj" placeholder="방 코드" maxlength="4"><button id="ljb">참가</button></div><p id="lp"></p><div id="teamList"></div><div id="lh" style="display:none"><p><label><input id="lcheat" type="checkbox"> 치트 모드 허용</label> <label><input id="linstant" type="checkbox"> 즉시 부활</label> <label><input id="lAImanual" type="checkbox"> AI 인원 직접 설정</label></p><p>아군 AI <input id="lAIA" type="number" min="0" max="9" value="2" style="width:60px"> 적군 AI <input id="lAIE" type="number" min="0" max="9" value="2" style="width:60px"></p><label>봇 난이도 <select id="ldiff"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></label> <label>맵 선택 <select id="lmap"></select></label> <label>시간대 <select id="ltime"><option value="night">밤</option><option value="day">낮</option></select></label> <select id="lsel"></select><button id="lst">시작</button></div><button id="lbk">뒤로</button></div></div>
-<div id="device"><div class="pn"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.27</small></h1><p style="opacity:.8;margin:0 0 8px">기기 선택</p><p>어떤 기기에서 플레이할까요?</p><p>기기에 맞는 조작 UI를 준비합니다.</p><div class="device-choice"><button id="deviceDesktop">PC</button><button id="deviceMobile">모바일</button></div></div></div>
-<div id="cheatSetup" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.96);z-index:10"><div class="pn wide"><h1>치트 모드 설정</h1><p>공격력 <input id="cheatDamage" type="range" min="1" max="10" step="0.5" value="1"></p><p>발사 속도 <input id="cheatRate" type="range" min="0.25" max="5" step="0.25" value="1"></p><p><label><input id="cheatFly" type="checkbox"> 날기 (Space 상승 · V 하강)</label></p><p><label><input id="cheatNoReload" type="checkbox"> 탄약 무제한</label></p><p><label><input id="cheatAutoAim" type="checkbox"> 자동 조준</label></p><p><label><input id="cheatAutoFire" type="checkbox"> 자동 발사</label></p><button id="cheatStart">시작</button><button id="cheatCancel">취소</button></div></div><div id="agentPick"><div class="pn"><h1>요원 선택</h1><p id="agentStatus"></p><div id="agentPicked"></div><div id="agentGrid" class="pickGrid"></div><button id="agentCancel">취소</button></div></div><div id="emotePick"><div class="pn"><h1>이모트</h1><p>선택하면 3인칭으로 이모트를 보여 줍니다.</p><div id="emoteGrid" class="pickGrid"></div><button id="emoteCancel">닫기</button></div></div><div id="home"><div class="pn wide"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.27</small></h1><p>닉네임 <input id="nick" maxlength="8" placeholder="플레이어"> 을 정하고 모드를 선택하세요.</p><p>맵 선택 <select id="mapSelect"></select></p><p>봇 난이도 <select id="diffSel"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></p><p>시간대 <select id="timeSelect"><option value="night">밤</option><option value="day">낮</option></select></p><p>조준점 <select id="chs"><option value="dot">점</option><option value="cross">십자</option><option value="h">가로줄</option><option value="x">엑스자</option></select></p><p id="desktopSensitivitySetting">PC 마우스 감도 <input id="sensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="sensitivityValue">1.0×</span></p><p id="mobileSensitivitySetting">모바일 시점 감도 <input id="mobileSensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="mobileSensitivityValue">1.0×</span></p><p id="aimLockSetting"><label><input id="aimLockToggle" type="checkbox"> 모바일 조준 고정 (탭으로 켜기/끄기)</label><small>끄면 조준 버튼을 누르는 동안만 정조준합니다.</small></p><p id="autoAimSetting"><label><input id="autoAimToggle" type="checkbox"> 모바일 자동 상대 조준</label><small>조준 버튼을 누르면 가까운 적을 부드럽게 따라갑니다.</small></p><p id="autoFireSetting"><label><input id="autoFireToggle" type="checkbox"> 모바일 자동 발사</label><small>조준 버튼을 누른 상태에서 조준선에 적이 들어오면 자동 발사합니다.</small></p><div id="cards"></div></div></div>
+<div id="device"><div class="pn"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.28</small></h1><p style="opacity:.8;margin:0 0 8px">기기 선택</p><p>어떤 기기에서 플레이할까요?</p><p>기기에 맞는 조작 UI를 준비합니다.</p><div class="device-choice"><button id="deviceDesktop">PC</button><button id="deviceMobile">모바일</button></div></div></div>
+<div id="cheatSetup" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.96);z-index:10"><div class="pn wide"><h1>치트 모드 설정</h1><p>공격력 <input id="cheatDamage" type="range" min="1" max="10" step="0.5" value="1"></p><p>발사 속도 <input id="cheatRate" type="range" min="0.25" max="5" step="0.25" value="1"></p><p><label><input id="cheatFly" type="checkbox"> 날기 (Space 상승 · V 하강)</label></p><p><label><input id="cheatNoReload" type="checkbox"> 탄약 무제한</label></p><p><label><input id="cheatAutoAim" type="checkbox"> 자동 조준</label></p><p><label><input id="cheatAutoFire" type="checkbox"> 자동 발사</label></p><button id="cheatStart">시작</button><button id="cheatCancel">취소</button></div></div><div id="agentPick"><div class="pn"><h1>요원 선택</h1><p id="agentStatus"></p><div id="agentPicked"></div><div id="agentGrid" class="pickGrid"></div><button id="agentCancel">취소</button></div></div><div id="emotePick"><div class="pn"><h1>이모트</h1><p>선택하면 3인칭으로 이모트를 보여 줍니다.</p><div id="emoteGrid" class="pickGrid"></div><button id="emoteCancel">닫기</button></div></div><div id="home"><div class="pn wide"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.28</small></h1><p>닉네임 <input id="nick" maxlength="8" placeholder="플레이어"> 을 정하고 모드를 선택하세요.</p><p>맵 선택 <select id="mapSelect"></select></p><p>봇 난이도 <select id="diffSel"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></p><p>시간대 <select id="timeSelect"><option value="night">밤</option><option value="day">낮</option></select></p><p>조준점 <select id="chs"><option value="dot">점</option><option value="cross">십자</option><option value="h">가로줄</option><option value="x">엑스자</option></select></p><p id="desktopSensitivitySetting">PC 마우스 감도 <input id="sensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="sensitivityValue">1.0×</span></p><p id="mobileSensitivitySetting">모바일 시점 감도 <input id="mobileSensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="mobileSensitivityValue">1.0×</span></p><p id="aimLockSetting"><label><input id="aimLockToggle" type="checkbox"> 모바일 조준 고정 (탭으로 켜기/끄기)</label><small>끄면 조준 버튼을 누르는 동안만 정조준합니다.</small></p><p id="autoAimSetting"><label><input id="autoAimToggle" type="checkbox"> 모바일 자동 상대 조준</label><small>조준 버튼을 누르면 가까운 적을 부드럽게 따라갑니다.</small></p><p id="autoFireSetting"><label><input id="autoFireToggle" type="checkbox"> 모바일 자동 발사</label><small>조준 버튼을 누른 상태에서 조준선에 적이 들어오면 자동 발사합니다.</small></p><div id="cards"></div></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
 <script>
-const GAME_VER="3.27";const $=id=>document.getElementById(id), V3=THREE.Vector3, rnd=Math.random;
+const GAME_VER="3.28";const $=id=>document.getElementById(id), V3=THREE.Vector3, rnd=Math.random;
 const R=new THREE.WebGLRenderer({antialias:true});
 R.setSize(innerWidth,innerHeight);R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
 document.body.prepend(R.domElement);
@@ -567,6 +574,20 @@ touchButton('mbJump',()=>{keys.Space=true},()=>{keys.Space=false});
 touchButton('mbReload',()=>reload());
 touchButton('mbSkill1',()=>{if(G.running&&P.alive)skP(0)});touchButton('mbSkill2',()=>{if(G.running&&P.alive)skP(1)});
 touchButton('mbNext',()=>{if(G.running&&P.emoteT<=0)setW((P.w+1)%WP.length)});touchButton('mbEmote',()=>openEmotePicker());
+function mbSync(){$('mbCrouch').classList.toggle('on',!!keys.ControlLeft);$('mbWalk').classList.toggle('on',!!keys.ShiftLeft);document.body.classList.toggle('training',!!G.train)}
+function mobileMenu(){if(!G.running)return;if(NET){window.dispatchEvent(new KeyboardEvent('keydown',{code:'Escape'}));return}
+ G.running=false;G.fire=false;G.ads=false;G.pz=true;$('tr').textContent='홈으로';$('mt').textContent='일시정지';$('ms').textContent='버튼을 누르면 이어서 진행해요.';$('go').textContent='계속하기';$('menu').style.display='flex'}
+touchButton('mbCrouch',()=>{if(G.running)keys.ControlLeft=!keys.ControlLeft});
+touchButton('mbWalk',()=>{if(G.running)keys.ShiftLeft=!keys.ShiftLeft});
+touchButton('mbMore',()=>{const m=$('mmore');m.style.display=m.style.display==='grid'?'none':'grid'});
+let mbSbOn=false;
+const mmDo=(id,fn)=>touchButton(id,()=>{fn();$('mmore').style.display='none'});
+mmDo('mmSb',()=>{mbSbOn=!mbSbOn;sbShow(mbSbOn)});
+mmDo('mmCh',()=>cycleCh());
+mmDo('mmInspect',()=>{if(G.running&&P.alive&&!G.ads&&P.rl<=0&&!P.inspecting){P.inspecting=true;P.inspectT=0}});
+mmDo('mmMenu',()=>mobileMenu());
+mmDo('mmTrain',()=>{if(G.running&&G.train){P.scd=[0,0];banner('스킬 쿨타임 초기화')}});
+lookEl.addEventListener('pointerdown',e=>{if(G.device!=='mobile'||!G.running||P.emoteT>0)return;const kids=[...$('wb').children];for(let i=0;i<kids.length;i++){const r=kids[i].getBoundingClientRect();if(e.clientX>=r.left-4&&e.clientX<=r.right+4&&e.clientY>=r.top-8&&e.clientY<=r.bottom+8){e.preventDefault();e.stopImmediatePropagation();setW(i);return}}},true);
 
 /* ---------- 팀 데스매치 / 스킬 ---------- */
 const WIN=30,T={A:0,E:0,Z:0},ZN={A:[38,46],E:[-46,-38]},ebA=new THREE.MeshBasicMaterial({color:0x3df2ff});
@@ -856,7 +877,7 @@ function DFv(){return DIFFS[(NET&&NET.host&&NET.diff)||$('diffSel').value||'n']|
 try{$('diffSel').value=localStorage.getItem('diff')||'n'}catch(e){}
 $('ldiff').value=$('diffSel').value;
 $('diffSel').onchange=()=>{$('ldiff').value=$('diffSel').value;try{localStorage.setItem('diff',$('diffSel').value)}catch(e){}};
-function hudMode(){uiTick();const m=G.mode||'dm';let a='팀 점수',b=T.A+' : '+T.E,z='(목표 '+MD[m].win+')';
+function hudMode(){uiTick();mbSync();const m=G.mode||'dm';let a='팀 점수',b=T.A+' : '+T.E,z='(목표 '+MD[m].win+')';
  if(G.train){a='';b='훈련장';z=''}else if(m==='flag'){a='점령';b=(G.flagOwner==='A'?'아군':G.flagOwner==='E'?'적군':'중립')+' '+Math.floor(G.flagPct||0)+'%';z='(중앙 구역 유지)'}else if(m==='wave'){a='웨이브';b=W.n;z='· 목숨 '+G.lives}else if(m==='sd'){a='생존';b=alive('A')+' : '+alive('E');z='(자기장 '+Math.round(Z.r)+'m)'}
  $('tl1').textContent=a;$('wv').textContent=b;$('tl2').textContent=z}
 function feed(o,f,hd){if(NET&&NET.host)for(const id in NET.pl){const q=NET.pl[id].f;nto(id,{t:'fd',on:o===P?NET.name:(o.nm||'자기장'),ot:pv(id,o.tm),fn:f===P?NET.name:f.nm,hd,hl:(o===q||f===q)?1:0})}
