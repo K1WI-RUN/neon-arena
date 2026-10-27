@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>네온 아레나 v3.40</title>
+<title>네온 아레나 v3.43</title>
 <style>
 :root{--bg:#0b1020;--fg:#eaf2ff;--ac:#ff4655;--cy:#3df2ff;--pn:rgba(8,12,26,.78)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1020;--fg:#eaf2ff;--ac:#ff4655;--cy:#3df2ff;--pn:rgba(8,12,26,.78)}}
@@ -165,7 +165,7 @@ body.mobile .pn h1{font-size:34px}
  <canvas id="mm" width="160" height="160"></canvas><div id="hi"></div><div id="sb"></div><div id="png"></div><div id="fgb"><i id="fgi"></i></div><div id="hm"></div><div id="vg"></div><div id="bn"></div><div id="scope"></div><div id="wb"></div><div id="kf"></div><div id="km"><svg viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="29" fill="rgba(8,12,26,.78)" stroke="#ff4655" stroke-width="3"/><path d="M32 14c-9 0-15 6-15 14 0 5 2 8 5 10v6h20v-6c3-2 5-5 5-10 0-8-6-14-15-14z" fill="#fff"/><circle cx="26" cy="29" r="4" fill="#0b1020"/><circle cx="38" cy="29" r="4" fill="#0b1020"/><path d="M32 34l-2.5 5h5z" fill="#0b1020"/><path d="M27 44v-3M32 44v-3M37 44v-3" stroke="#0b1020" stroke-width="2"/></svg></div><div id="sk"></div><div id="resp">전투 불능 · <b id="rs">5</b>초 후 부활</div>
 </div>
 <div id="mlook" aria-label="화면을 드래그해 조준"></div><div id="mcontrols"><div id="joy" aria-label="이동 조이스틱"><div id="joyknob"></div></div><button class="mbtn" id="mbFire">발사</button><button class="mbtn" id="mbAim">조준</button><button class="mbtn" id="mbJump">점프</button><button class="mbtn" id="mbReload">재장전</button><button class="mbtn" id="mbSkill1">Q</button><button class="mbtn" id="mbSkill2">E</button><button class="mbtn" id="mbNext">무기</button><button class="mbtn" id="mbEmote">이모트</button><button class="mbtn" id="mbCrouch">웅크리기</button><button class="mbtn" id="mbWalk">걷기</button><button class="mbtn" id="mbMore">더보기</button><div id="mmore"><button class="mbtn" id="mmSb">점수판</button><button class="mbtn" id="mmCh">조준점</button><button class="mbtn" id="mmInspect">무기 보기</button><button class="mbtn" id="mmMenu">메뉴</button><button class="mbtn" id="mmTrain">쿨타임 초기화</button></div></div><div id="menu"><div class="pn">
- <h1 id="mt">네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.40</small></h1>
+ <h1 id="mt">네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.43</small></h1>
  <p id="ms">5 대 5 팀 데스매치! 먼저 30킬을 달성한 팀이 승리해요.</p><div id="onlineOpts" style="display:none"><label><input id="ownInvuln" type="checkbox"> 내 무적</label> <label><input id="ownRespawn" type="checkbox"> 내 즉시 부활</label><p>ESC를 다시 누르거나 계속하기를 눌러 돌아가세요.</p></div>
  <div id="controlsHelp">
  <table>
@@ -189,12 +189,12 @@ body.mobile .pn h1{font-size:34px}
  <div id="res"></div><button id="go">게임 시작</button><button id="tr">홈으로</button>
 </div></div>
 <div id="lobby" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.94);z-index:8"><div class="pn"><h1>온라인</h1><p id="lm">친구들과 같은 방에서 싸워요 (최대 10명). 빈자리는 봇이 채워요.</p><div id="lc"><button id="lcr">방 만들기</button><br><input id="lj" placeholder="방 코드" maxlength="4"><button id="ljb">참가</button></div><p id="lp"></p><div id="teamList"></div><div id="lh" style="display:none"><p><label><input id="lcheat" type="checkbox"> 치트 모드 허용</label> <label><input id="linstant" type="checkbox"> 즉시 부활</label> <label><input id="lAImanual" type="checkbox"> AI 인원 직접 설정</label></p><p>아군 AI <input id="lAIA" type="number" min="0" max="9" value="2" style="width:60px"> 적군 AI <input id="lAIE" type="number" min="0" max="9" value="2" style="width:60px"></p><label>봇 난이도 <select id="ldiff"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></label> <label>맵 선택 <select id="lmap"></select></label> <label>시간대 <select id="ltime"><option value="night">밤</option><option value="day">낮</option></select></label> <select id="lsel"></select><button id="lst">시작</button></div><button id="lbk">뒤로</button></div></div>
-<div id="device"><div class="pn"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.40</small></h1><p style="opacity:.8;margin:0 0 8px">기기 선택</p><p>어떤 기기에서 플레이할까요?</p><p>기기에 맞는 조작 UI를 준비합니다.</p><div class="device-choice"><button id="deviceDesktop">PC</button><button id="deviceMobile">모바일</button></div></div></div>
-<div id="cheatSetup" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.96);z-index:10"><div class="pn wide"><h1>치트 모드 설정</h1><p>공격력 <input id="cheatDamage" type="range" min="1" max="10" step="0.5" value="1"></p><p>발사 속도 <input id="cheatRate" type="range" min="0.25" max="5" step="0.25" value="1"></p><p><label><input id="cheatFly" type="checkbox"> 날기 (Space 상승 · V 하강)</label></p><p><label><input id="cheatNoReload" type="checkbox"> 탄약 무제한</label></p><p><label><input id="cheatAutoAim" type="checkbox"> 자동 조준</label></p><p><label><input id="cheatAutoFire" type="checkbox"> 자동 발사</label></p><button id="cheatStart">시작</button><button id="cheatCancel">취소</button></div></div><div id="agentPick"><div class="pn"><h1>요원 선택</h1><p id="agentStatus"></p><div id="agentPicked"></div><div id="agentGrid" class="pickGrid"></div><button id="agentCancel">취소</button></div></div><div id="emotePick"><div class="pn"><h1>이모트</h1><p>선택하면 3인칭으로 이모트를 보여 줍니다.</p><div id="emoteGrid" class="pickGrid"></div><button id="emoteCancel">닫기</button></div></div><div id="home"><div class="pn wide"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.40</small></h1><p>닉네임 <input id="nick" maxlength="8" placeholder="플레이어"> 을 정하고 모드를 선택하세요.</p><p>맵 선택 <select id="mapSelect"></select></p><p>봇 난이도 <select id="diffSel"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></p><p>시간대 <select id="timeSelect"><option value="night">밤</option><option value="day">낮</option></select></p><p>조준점 <select id="chs"><option value="dot">점</option><option value="cross">십자</option><option value="h">가로줄</option><option value="x">엑스자</option></select></p><p id="desktopSensitivitySetting">PC 마우스 감도 <input id="sensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="sensitivityValue">1.0×</span></p><p id="mobileSensitivitySetting">모바일 시점 감도 <input id="mobileSensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="mobileSensitivityValue">1.0×</span></p><p id="aimLockSetting"><label><input id="aimLockToggle" type="checkbox"> 모바일 조준 고정 (탭으로 켜기/끄기)</label><small>끄면 조준 버튼을 누르는 동안만 정조준합니다.</small></p><p id="autoAimSetting"><label><input id="autoAimToggle" type="checkbox"> 모바일 자동 상대 조준</label><small>조준 버튼을 누르면 가까운 적을 부드럽게 따라갑니다.</small></p><p id="autoFireSetting"><label><input id="autoFireToggle" type="checkbox"> 모바일 자동 발사</label><small>조준 버튼을 누른 상태에서 조준선에 적이 들어오면 자동 발사합니다.</small></p><div id="cards"></div></div></div>
+<div id="device"><div class="pn"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.43</small></h1><p style="opacity:.8;margin:0 0 8px">기기 선택</p><p>어떤 기기에서 플레이할까요?</p><p>기기에 맞는 조작 UI를 준비합니다.</p><div class="device-choice"><button id="deviceDesktop">PC</button><button id="deviceMobile">모바일</button></div></div></div>
+<div id="cheatSetup" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(5,8,18,.96);z-index:10"><div class="pn wide"><h1>치트 모드 설정</h1><p>공격력 <input id="cheatDamage" type="range" min="1" max="10" step="0.5" value="1"></p><p>발사 속도 <input id="cheatRate" type="range" min="0.25" max="5" step="0.25" value="1"></p><p><label><input id="cheatFly" type="checkbox"> 날기 (Space 상승 · V 하강)</label></p><p><label><input id="cheatNoReload" type="checkbox"> 탄약 무제한</label></p><p><label><input id="cheatAutoAim" type="checkbox"> 자동 조준</label></p><p><label><input id="cheatAutoFire" type="checkbox"> 자동 발사</label></p><button id="cheatStart">시작</button><button id="cheatCancel">취소</button></div></div><div id="agentPick"><div class="pn"><h1>요원 선택</h1><p id="agentStatus"></p><div id="agentPicked"></div><div id="agentGrid" class="pickGrid"></div><button id="agentCancel">취소</button></div></div><div id="emotePick"><div class="pn"><h1>이모트</h1><p>선택하면 3인칭으로 이모트를 보여 줍니다.</p><div id="emoteGrid" class="pickGrid"></div><button id="emoteCancel">닫기</button></div></div><div id="home"><div class="pn wide"><h1>네온 아레나 <small style="font-size:.45em;opacity:.7;font-weight:600">v3.43</small></h1><p>닉네임 <input id="nick" maxlength="8" placeholder="플레이어"> 을 정하고 모드를 선택하세요.</p><p>맵 선택 <select id="mapSelect"></select></p><p>봇 난이도 <select id="diffSel"><option value="e">쉬움</option><option value="n" selected>보통</option><option value="h">어려움</option></select></p><p>시간대 <select id="timeSelect"><option value="night">밤</option><option value="day">낮</option></select></p><p>조준점 <select id="chs"><option value="dot">점</option><option value="cross">십자</option><option value="h">가로줄</option><option value="x">엑스자</option></select></p><p id="desktopSensitivitySetting">PC 마우스 감도 <input id="sensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="sensitivityValue">1.0×</span></p><p id="mobileSensitivitySetting">모바일 시점 감도 <input id="mobileSensitivity" type="range" min="0.5" max="2" step="0.1" value="1"><span id="mobileSensitivityValue">1.0×</span></p><p id="aimLockSetting"><label><input id="aimLockToggle" type="checkbox"> 모바일 조준 고정 (탭으로 켜기/끄기)</label><small>끄면 조준 버튼을 누르는 동안만 정조준합니다.</small></p><p id="autoAimSetting"><label><input id="autoAimToggle" type="checkbox"> 모바일 자동 상대 조준</label><small>조준 버튼을 누르면 가까운 적을 부드럽게 따라갑니다.</small></p><p id="autoFireSetting"><label><input id="autoFireToggle" type="checkbox"> 모바일 자동 발사</label><small>조준 버튼을 누른 상태에서 조준선에 적이 들어오면 자동 발사합니다.</small></p><div id="cards"></div></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
 <script>
-const GAME_VER="3.40";const $=id=>document.getElementById(id), V3=THREE.Vector3, rnd=Math.random;
+const GAME_VER="3.43";const $=id=>document.getElementById(id), V3=THREE.Vector3, rnd=Math.random;
 const R=new THREE.WebGLRenderer({antialias:true});
 R.setSize(innerWidth,innerHeight);R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
 document.body.prepend(R.domElement);
@@ -285,7 +285,7 @@ function mkKnife(){const g=new THREE.Group(),bladeM=new THREE.MeshStandardMateri
  for(let k=0;k<3;k++){const ring=new THREE.Mesh(new THREE.CylinderGeometry(.026,.026,.008,10),guardM);ring.rotation.x=Math.PI/2;ring.position.set(0,.02,.03+k*.04);g.add(ring)}
  const guard=new THREE.Mesh(new THREE.BoxGeometry(.075,.024,.02),guardM);guard.position.set(0,.02,-.015);g.add(guard);
  const pommel=new THREE.Mesh(new THREE.CylinderGeometry(.027,.027,.02,10),guardM);pommel.rotation.x=Math.PI/2;pommel.position.set(0,.02,.15);g.add(pommel);
- g.visible=false;gv.add(g);return g}
+ g.position.set(.02,-.08,-.02);g.rotation.set(.05,.05,0);g.visible=false;gv.add(g);return g}
 const WP=[
  {n:'마이너',g:mkGun(.3,.14,0x3df2ff,{mag:.1,handle:'rear'}),L:.3,B:.14,auto:0,cd:.2,mag:12,body:28,head:85,rl:1.4,sp:.003,run:.05,rec:.6,fov:62,af:.5},
  {n:'스필러',g:mkGun(.38,.18,0xb46bff,{mag:.15,handle:'side'}),L:.38,B:.18,auto:1,cd:.065,mag:30,body:18,head:45,rl:1.8,sp:.006,run:.035,rec:.55,fov:56,af:.5},
@@ -309,7 +309,7 @@ const mBody=new THREE.MeshStandardMaterial({color:0x2a3350,roughness:.6}),
  mDk=new THREE.MeshStandardMaterial({color:0x14171f,metalness:.6,roughness:.4});
 function applyCrouchPose(f,a){f.crouchAmt=a;if(f.pose){f.pose.position.y=1.15-.22*a;f.pose.rotation.x=.12*a}if(f.tag)f.tag.position.y=2.5-.35*a}
 const mAccA=new THREE.MeshStandardMaterial({color:0x3df2ff,emissive:0x3df2ff,emissiveIntensity:.9}),mAccE=mAcc;
-function equipBotWeapon(f,i){if(f.botGun)f.botGun.parent.remove(f.botGun);f.w=i;const w=WP[i];f.ammo=w.mag;f.rl=0;const g=w.g.clone(true);g.visible=true;g.position.set(.34,.07,.2);g.rotation.y=Math.PI;g.scale.setScalar(.62);(f.pose||f.g).add(g);f.botGun=g}
+function equipBotWeapon(f,i){if(f.botGun&&f.botGun.parent)f.botGun.parent.remove(f.botGun);f.w=i;const w=WP[i];f.ammo=w.mag;f.rl=0;const g=w.g.clone(true);g.visible=true;g.scale.setScalar(.85);if(f.weaponPivot){f.weaponPivot.children.forEach(ch=>{if(ch.isMesh)ch.visible=false});g.position.set(0,0,.16);g.rotation.set(0,0,0);f.weaponPivot.add(g)}else{g.position.set(-.34,.05,.16);g.rotation.set(0,0,0);(f.pose||f.g).add(g)}f.botGun=g}
 function limbPart(parent,a,b,w,d,mat){const av=new V3(...a),bv=new V3(...b),dir=bv.clone().sub(av),m=new THREE.Mesh(new THREE.BoxGeometry(w,dir.length(),d),mat);m.position.copy(av.add(bv).multiplyScalar(.5));m.quaternion.setFromUnitVectors(new V3(0,1,0),dir.normalize());m.castShadow=true;parent.add(m);return m}
 function makeCharacterArm(parent,shoulder,elbow,wrist,sleeve,skin){const arm=new THREE.Group();arm.position.set(...shoulder);parent.add(arm);limbPart(arm,[0,0,0],[elbow[0]-shoulder[0],elbow[1]-shoulder[1],elbow[2]-shoulder[2]],.18,.18,sleeve);limbPart(arm,[elbow[0]-shoulder[0],elbow[1]-shoulder[1],elbow[2]-shoulder[2]],[wrist[0]-shoulder[0],wrist[1]-shoulder[1],wrist[2]-shoulder[2]],.14,.14,sleeve);const hand=new THREE.Mesh(new THREE.BoxGeometry(.13,.1,.15),skin);hand.position.set(wrist[0]-shoulder[0],wrist[1]-shoulder[1],wrist[2]-shoulder[2]+.035);hand.castShadow=true;arm.add(hand);return arm}function mkEnemy(x,z,tm){const mAcc=tm==='A'?mAccA:mAccE;
  const g=new THREE.Group(),e={g,hp:100,x,z,tm,nm:(tm==='A'?'아군':'적군')+(++BN),id:'b'+BN,sh:0,shT:0,hs:0,cl:0,sk:[],scd:[0,0],dead:false,rt:0,ry:Math.atan2(-x,-z),t:rnd()*6,cd:1+rnd()*1.5,parts:[],legs:[]};
@@ -496,12 +496,12 @@ function update(dt){
  P.cd-=dt;P.cycle=Math.max(0,(P.cycle||0)-dt);P.kick=Math.max(0,P.kick-dt*9);mlight.intensity*=Math.exp(-dt*30);P.dmg=Math.max(0,P.dmg-dt*1.6);
  if(P.rl>0){P.rl-=dt;if(P.rl<=0){if(P.w===4){P.ammo=Math.min(WP[4].mag,P.ammo+1);P.rph=0;P.rl=P.ammo<WP[4].mag?.62:0}else P.ammo=WP[P.w].mag}}
  gv.position.z=-.5+P.kick*.12;{const w0=WP[P.w];
- if(w0&&w0.melee){gv.rotation.x=P.kick*.35;gv.rotation.z=(G.meleeMode==='stab'?.3:0)+P.kick*.05;P.moff=0;if(typeof ARM!=='undefined'&&ARM.R){ARM.R.position.set(.12,-.18,-.12);ARM.R.rotation.set(-.15,.2,-.35);ARM.L.position.set(-.08,-.22,-.05);ARM.L.rotation.set(-.1,-.15,.25)}}
+ if(w0&&w0.melee){P.moff=0}
  else{const rd=P.w===4?.62:((w0&&w0.rl)||1),u=(P.rl>0&&rd>0)?Math.min(1,(rd-P.rl)/rd):0,cycleU=P.cycle>0?1-P.cycle/.48:0,tl=Math.sin(Math.min(1,u*1.1)*Math.PI),mg=w0&&w0.g&&w0.g.userData&&w0.g.userData.mag;gv.rotation.x=P.kick*.16-.45*tl;gv.rotation.z=.5*tl;
  if(P.rl>0){if(u>.25&&(P.rph||0)<1){P.rph=1;snd(380,.05,'square',.08,150)}if(u>.62&&(P.rph||0)<2){P.rph=2;snd(520,.06,'square',.1,200)}}
  const pm=w0&&w0.g&&w0.g.userData&&w0.g.userData.pump;if(pm&&w0.cd)pm.position.z=-w0.L/2-.1+(P.cd>0?.12*Math.sin(Math.min(1,Math.max(0,(1-P.cd/w0.cd-.15)/.7))*Math.PI):0);
  P.moff=0;if(mg){let off=0,vs=true;if(u>=.18&&u<.34)off=-(u-.18)/.16*.4;else if(u>=.34&&u<.42)vs=false;else if(u>=.42&&u<.62)off=-.4+(u-.42)/.2*.4;mg.position.y=-.12+off;mg.visible=vs;P.moff=off}
- updateChargeHandle(w0,u,cycleU);handIK(w0,u,!!mg,pm,cycleU)}}const sa=(P.sw||0)*(1-P.ads*.85),ph=P.t*(keys.ShiftLeft?6:9);gv.position.y=-.24+.125*P.ads+bob*.6*(1-P.ads*.8)+Math.abs(Math.cos(ph))*.018*sa+Math.sin(P.t*1.7)*.004*(1-P.ads*.7);gv.position.x=.26*(1-P.ads)+Math.sin(ph)*.014*sa;gv.rotation.y=Math.sin(ph)*.04*sa;gv.rotation.x+=-.1*sa;if(WP[P.w]&&WP[P.w].melee)meleeSwing();{const a=P.inspectMix||0,t=P.inspectT||0,smooth=q=>{q=Math.max(0,Math.min(1,q));return q*q*(3-2*q)};let yaw=0,roll=0;if(t<.5){yaw=.72*smooth(t/.5);roll=-.86*smooth(t/.5)}else if(t<1.25){yaw=.72;roll=-.86}else if(t<1.55){const q=smooth((t-1.25)/.3);yaw=.72*(1-q);roll=-.86+1.81*q}else if(t<2.45)roll=.95;else if(t<2.75)roll=.95*(1-smooth((t-2.45)/.3));const flip=(t>=1.25&&t<1.55)?Math.sin(Math.PI*(t-1.25)/.3):(t>=2.45&&t<2.75)?Math.sin(Math.PI*(t-2.45)/.3):0;gv.position.x-=.1*a;gv.position.y-=.04*a;gv.position.z-=.08*a;gv.rotation.x+=(.04+.18*flip)*a;gv.rotation.y+=yaw*a;gv.rotation.z+=roll*a}
+ updateChargeHandle(w0,u,cycleU);handIK(w0,u,!!mg,pm,cycleU)}}const sa=(P.sw||0)*(1-P.ads*.85),ph=P.t*(keys.ShiftLeft?6:9);gv.position.y=-.24+.125*P.ads+bob*.6*(1-P.ads*.8)+Math.abs(Math.cos(ph))*.018*sa+Math.sin(P.t*1.7)*.004*(1-P.ads*.7);gv.position.x=.26*(1-P.ads)+Math.sin(ph)*.014*sa;gv.rotation.y=Math.sin(ph)*.04*sa;gv.rotation.x+=-.1*sa;if(WP[P.w]&&WP[P.w].melee)meleeSwing();{const a=P.inspectMix||0,t=P.inspectT||0,smooth=q=>{q=Math.max(0,Math.min(1,q));return q*q*(3-2*q)};const knife=!!(WP[P.w]&&WP[P.w].melee);let yaw=0,roll=0;if(t<.5){yaw=(knife?.55:.72)*smooth(t/.5);roll=(knife?-.5:-.86)*smooth(t/.5)}else if(t<1.25){yaw=knife?.55:.72;roll=knife?-.5:-.86}else if(t<1.55){const q=smooth((t-1.25)/.3);yaw=(knife?.55:.72)*(1-q);roll=(knife?-.5:-.86)+(knife?1.1:1.81)*q}else if(t<2.45)roll=knife?.55:.95;else if(t<2.75)roll=(knife?.55:.95)*(1-smooth((t-2.45)/.3));const flip=(t>=1.25&&t<1.55)?Math.sin(Math.PI*(t-1.25)/.3):(t>=2.45&&t<2.75)?Math.sin(Math.PI*(t-2.45)/.3):0;if(knife){gv.position.x+=.06*a;gv.position.y+=.02*a;gv.position.z-=.05*a;gv.rotation.x+=(.06+.22*flip)*a;gv.rotation.y+=yaw*a;gv.rotation.z+=roll*a;if(typeof ARM!=='undefined'&&ARM.L&&!(P.mAnim&&P.mAnim.stab)){ARM.L.visible=false}}else{gv.position.x-=.1*a;gv.position.y-=.04*a;gv.position.z-=.08*a;gv.rotation.x+=(.04+.18*flip)*a;gv.rotation.y+=yaw*a;gv.rotation.z+=roll*a}}
  const autoFireTarget=!G.pz&&mobileAimTarget();if(autoFireTarget){P.autoFireWait=Math.max(0,(P.autoFireWait||0)-dt);if(P.autoFireWait<=0&&shoot()){G.fired=true;P.autoFireWait=.15}}else{P.autoFireWait=0;if(!G.pz&&G.fire&&(WP[P.w].auto||!G.fired)&&shoot())G.fired=true}
  // 적
  for(const e of enemies.slice())netOrAI(e,dt);
@@ -613,12 +613,25 @@ function markEnemy(o,t,by){
  if(o===P){banner('위치가 노출됐다!');return}
  o.marked=3;o.markTm=by&&by.tm?by.tm:(o.tm==='A'?'E':'A');
 }
-const markGeo=new THREE.BoxGeometry(.95,1.95,.7);
 function markPulse(o){
  const show=o.markTm===P.tm&&o.tm!==P.tm&&!o.dead&&o.marked>0;
  if(!show){if(o.markFx)clearMark(o);return}
- if(!o.markFx){const g=new THREE.Group(),fill=new THREE.Mesh(markGeo,new THREE.MeshBasicMaterial({color:0xff9a1f,transparent:true,opacity:.38,depthTest:false,depthWrite:false})),edge=new THREE.LineSegments(new THREE.EdgesGeometry(markGeo),new THREE.LineBasicMaterial({color:0xffb347,transparent:true,depthTest:false}));fill.renderOrder=edge.renderOrder=999;g.add(fill,edge);g.position.y=1.0;o.g.add(g);o.markFx=g}
- o.markFx.children[0].material.opacity=.3+.15*(.75+Math.sin(performance.now()*.012)*.25);
+ if(!o.markFx){
+  const g=new THREE.Group();
+  const mat=new THREE.MeshBasicMaterial({color:0xff7a18,transparent:true,opacity:.4,depthTest:false,depthWrite:false});
+  const edgeMat=new THREE.LineBasicMaterial({color:0xffc56e,transparent:true,opacity:.9,depthTest:false});
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(.22,.26,1.15,10),mat);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.2,10,8),mat);
+  body.position.y=1.0;head.position.y=1.72;
+  const edgeBody=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.CylinderGeometry(.24,.28,1.2,8)),edgeMat);
+  const edgeHead=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.SphereGeometry(.22,8,6)),edgeMat);
+  edgeBody.position.y=1.0;edgeHead.position.y=1.72;
+  body.renderOrder=head.renderOrder=edgeBody.renderOrder=edgeHead.renderOrder=999;
+  g.add(body,head,edgeBody,edgeHead);o.g.add(g);o.markFx=g;
+ }
+ const pulse=.32+.14*(.6+Math.sin(performance.now()*.012)*.4);
+ o.markFx.children[0].material.opacity=pulse;
+ o.markFx.children[1].material.opacity=pulse;
  if(o.tag){o.tag.visible=true;o.tag.material.color.setHex(0xffa040);o.tag.material.depthTest=false}
 }
 function clearMark(o){
@@ -839,7 +852,7 @@ function botMove(f,t,td,hz,dx,dz,d,dt){
 function botAI(f,dt){
  tickSk(f,dt);
  if(f.dead){f.rt-=dt;f.g.rotation.x=-Math.min(1.45,(5-f.rt)*5);if(f.rt<=0)deadEnd(f);f._tgt=null;return}
- if(f.tr){f.t+=dt;if(f.mv){f.x=f.hx+Math.sin(f.t*.8)*f.mv;f.g.position.set(f.x,0,f.z)}f.g.rotation.y=Math.atan2(P.x-f.x,P.z-f.z);return}
+ if(f.tr){f.t+=dt;if(f.mv){f.x=f.hx+Math.sin(f.t*.8)*f.mv;f.g.position.set(f.x,0,f.z)}f.g.rotation.y=f.ry;return}
  f._tgtHold=(f._tgtHold||0)-dt;
  let t=null,td=1e9;
  const sticky=f._tgt&&f._tgtHold>0&&!f._tgt.dead&&!(f._tgt===P&&!P.alive)&&!(f._tgt.cl>0&&Math.hypot(f._tgt.x-f.x,f._tgt.z-f.z)>10);
@@ -942,13 +955,53 @@ function flagVis(){const on=G.mode==='flag'&&!G.train,b=$('fgb');b.style.display
  const o=G.flagOwner,col=(!o||o==='N')?0xd6dbe8:o===P.tm?0x2f8cff:0xff3b4d,cloth=f.children[1],ring=f.children[2];
  cloth.position.y=1.0+4.1*G.flagShow/100;cloth.material.color.setHex(col);ring.material.color.setHex(col);
  $('fgi').style.width=G.flagShow+'%';$('fgi').style.background='#'+col.toString(16).padStart(6,'0')}
+function knifeHands(mode,t){
+ if(typeof ARM==='undefined'||!ARM.R)return;
+ t=t==null?1:t;
+ ARM.R.rotation.set(0,0,0);ARM.R.visible=true;
+ const rGrip=[.02,-.02,.0];
+ if(mode==='stab'){
+  // 찌르기: 반드시 두손 (다른 경로가 왼팔을 끄지 못하게 매 프레임 강제)
+  ARM.L.visible=true;ARM.L.rotation.set(0,0,0);
+  const r0=[.02,-.02,.0], r1=[.02,-.02,-.06];
+  const l0=[-.06,-.05,.0], l1=[.0,-.02,-.04];
+  ARM.R.position.set(r0[0]+(r1[0]-r0[0])*t,r0[1]+(r1[1]-r0[1])*t,r0[2]+(r1[2]-r0[2])*t);
+  ARM.L.position.set(l0[0]+(l1[0]-l0[0])*t,l0[1]+(l1[1]-l0[1])*t,l0[2]+(l1[2]-l0[2])*t);
+ }else{
+  // 대기·휘두르기·자세히보기: 오른팔만
+  ARM.R.position.set(rGrip[0],rGrip[1],rGrip[2]);
+  if(ARM.L){ARM.L.visible=false}
+ }
+}
 function meleeSwing(){const a=P.mAnim;let u=0;if(a){u=(performance.now()-a.t0)/1000/a.dur;if(u>=1){P.mAnim=null}}
- const idle={rx:.08,ry:-.2,rz:-.12,px:0,pz:-.5};
- if(!P.mAnim){gv.rotation.set(idle.rx,idle.ry,idle.rz);gv.position.z=idle.pz;return}
- const w=Math.min(1,u/.15)*(u<.7?1:(1-u)/.3);let sw;
- if(a.stab){const e=u<.3?u/.3:1-(u-.3)/.7;sw={rx:-.05*e,ry:-.1,rz:-.12,px:-.12*e,pz:-.5-.45*e}}
- else{const s=u<.5?2*u*u:1-2*(1-u)*(1-u);sw={rx:.2-.35*Math.sin(s*Math.PI),ry:-.9+1.8*s,rz:-.5+.9*s,px:.18-.55*s,pz:-.5-.12*Math.sin(s*Math.PI)}}
- gv.rotation.set(idle.rx+(sw.rx-idle.rx)*w,idle.ry+(sw.ry-idle.ry)*w,idle.rz+(sw.rz-idle.rz)*w);gv.position.x+=idle.px+(sw.px-idle.px)*w;gv.position.z=idle.pz+(sw.pz-idle.pz)*w}
+ // 총 시야와 비슷하게, 살짝 오른쪽 — 칼 전체가 화면 안
+ const idle={rx:.06,ry:.08,rz:0,px:.16,py:-.06,pz:-.42};
+ if(!a&&(P.inspecting||(P.inspectMix||0)>.08)){
+  knifeHands('inspect',0);
+  gv.rotation.set(idle.rx*.5,idle.ry*.4,0);
+  gv.position.set(.12,-.02,-.38);
+  return;
+ }
+ if(!a){
+  knifeHands('idle',0);
+  gv.rotation.set(idle.rx,idle.ry,idle.rz);
+  gv.position.set(idle.px,idle.py,idle.pz);
+  return;
+ }
+ const w=Math.min(1,u/.08)*(u<.7?1:Math.max(0,(1-u)/.3));
+ let sw;
+ if(a.stab){
+  const e=u<.36?u/.36:1,sm=e*e*(3-2*e),rec=u>.52?(u-.52)/.48:0;
+  sw={rx:-.9+1.2*sm-.28*rec,ry:.06,rz:0,px:.12,py:.08-.2*sm,pz:-.3-.45*sm};
+  knifeHands('stab',sm);
+ }else{
+  const e=u<.48?u/.48:1,sm=e*e*(3-2*e),rec=u>.62?(u-.62)/.38:0;
+  sw={rx:.06+.05*Math.sin(sm*Math.PI),ry:-.45+1.4*sm-.28*rec,rz:-.35+.2*sm,px:.2-.3*sm,py:-.06,pz:-.42};
+  knifeHands('slash',sm);
+ }
+ gv.rotation.set(idle.rx+(sw.rx-idle.rx)*w,idle.ry+(sw.ry-idle.ry)*w,idle.rz+(sw.rz-idle.rz)*w);
+ gv.position.set(idle.px+(sw.px-idle.px)*w,idle.py+(sw.py-idle.py)*w,idle.pz+(sw.pz-idle.pz)*w)}
+
 function hudMode(){uiTick();mbSync();flagVis();const m=G.mode||'dm';let a='팀 점수',b=T.A+' : '+T.E,z='(목표 '+MD[m].win+')';
  if(G.train){a='';b='훈련장';z=''}else if(m==='flag'){a='점령';b=((!G.flagOwner||G.flagOwner==='N')?'중립':G.flagOwner===P.tm?'아군':'적군')+' '+Math.floor(G.flagPct||0)+'%';z='(중앙 구역 유지)'}else if(m==='wave'){a='웨이브';b=W.n;z='· 목숨 '+G.lives}else if(m==='sd'){a='생존';b=alive('A')+' : '+alive('E');z='(자기장 '+Math.round(Z.r)+'m)'}
  $('tl1').textContent=a;$('wv').textContent=b;$('tl2').textContent=z}
@@ -1080,7 +1133,7 @@ function mkArm(sx){const g=new THREE.Group(),sk=new THREE.MeshStandardMaterial({
  const m=(w,h,d,mt,x,y,z,rx=0,ry=0)=>{const q=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mt);q.position.set(x,y,z);q.rotation.set(rx,ry,0);g.add(q)};
  m(.07,.075,.1,sk,0,0,0);m(.065,.03,.07,sk,0,.04,-.03);m(.04,.03,.05,sk,sx*-.04,.01,-.05);const L0=sx<0,ry=sx*(L0?.75:.3);m(.085,.085,.07,cf,L0?-.07:.025,-.03,L0?.07:.09,.4,ry);m(.095,.095,.34,sl,L0?-.13:.05,-.08,L0?.16:.26,.4,ry);return g}
 const ARM={R:mkArm(1),L:mkArm(-1)};gv.add(ARM.R,ARM.L);
-function updateChargeHandle(w,u,cycleU){const s=w.g.userData.slide,h=w.g.userData.handle;if(!s&&!h)return;let a=0;if(WP.indexOf(w)===3&&cycleU>0){a=cycleU<.3?cycleU/.3:cycleU<.7?1:(1-cycleU)/.3}else if(u>=.85){const q=(u-.85)/.15;a=q<.55?q/.55:(1-q)/.45}if(s)s.position.z=s.userData.travel*a;if(h){h.position.copy(h.userData.home);h.position.z+=h.userData.travel*a}}function handIK(w,u,hm,pm,cycleU=0){if(!w||w.melee){if(w&&w.melee&&typeof ARM!=='undefined'&&ARM.R){ARM.R.position.set(.12,-.18,-.12);ARM.R.rotation.set(-.15,.2,-.35);ARM.L.position.set(-.08,-.22,-.05);ARM.L.rotation.set(-.1,-.15,.25)}return}const L=w.L,i=WP.indexOf(w),fore=[[-.03,-.12,L*.2+.05],[0,-.07,-L/2-.03],[0,-.07,-L/2-.1],[0,-.07,-L*.38],[0,-.07,-L/2-.1],[.02,-.1,-.12]][i]||[0,-.1,-.15],mh=[0,-.17,-L*.1],sl=w.g.userData.slide,h=w.g.userData.handle,hasHandle=!!(sl||h),grip=sl?sl.userData.grip:h?h.userData.grip:fore;let p=fore;
+function updateChargeHandle(w,u,cycleU){const s=w.g.userData.slide,h=w.g.userData.handle;if(!s&&!h)return;let a=0;if(WP.indexOf(w)===3&&cycleU>0){a=cycleU<.3?cycleU/.3:cycleU<.7?1:(1-cycleU)/.3}else if(u>=.85){const q=(u-.85)/.15;a=q<.55?q/.55:(1-q)/.45}if(s)s.position.z=s.userData.travel*a;if(h){h.position.copy(h.userData.home);h.position.z+=h.userData.travel*a}}function handIK(w,u,hm,pm,cycleU=0){if(w&&!w.melee&&typeof ARM!=='undefined'&&ARM.L)ARM.L.visible=true;if(!w||w.melee){if(w&&w.melee&&typeof ARM!=='undefined'&&ARM.R){ARM.R.rotation.set(0,0,0);ARM.R.position.set(.02,-.02,.0);if(ARM.L&&!(P.mAnim&&P.mAnim.stab))ARM.L.visible=false}return}const L=w.L,i=WP.indexOf(w),fore=[[-.03,-.12,L*.2+.05],[0,-.07,-L/2-.03],[0,-.07,-L/2-.1],[0,-.07,-L*.38],[0,-.07,-L/2-.1],[.02,-.1,-.12]][i]||[0,-.1,-.15],mh=[0,-.17,-L*.1],sl=w.g.userData.slide,h=w.g.userData.handle,hasHandle=!!(sl||h),grip=sl?sl.userData.grip:h?h.userData.grip:fore;let p=fore;
  if(i===3&&cycleU>0){const q=cycleU<.3?cycleU/.3:cycleU<.7?1:(1-cycleU)/.3;p=lerp3(fore,grip,q)}
  else if(u>0){if(hm){const mo=P.moff||0;if(u<.18)p=lerp3(fore,mh,u/.18);else if(u<.34)p=[0,-.17+mo,mh[2]];else if(u<.42)p=[0,-.6,mh[2]];else if(u<.62)p=[0,-.17+mo,mh[2]];else if(hasHandle&&u<.70)p=lerp3(mh,fore,(u-.62)/.08);else if(hasHandle&&u<.77)p=fore;else if(hasHandle&&u<.85)p=lerp3(fore,grip,(u-.77)/.08);else if(hasHandle){const q=(u-.85)/.15,a=q<.55?q/.55:(1-q)/.45;p=lerp3(fore,grip,a)}else p=lerp3(mh,fore,Math.min(1,(u-.62)/.15))}else p=lerp3(fore,[-.07,-.02,-L*.1],Math.abs(Math.sin(Math.min(1,u*1.1)*Math.PI*3)))}
  else if(pm)p=[fore[0],fore[1],pm.position.z];ARM.R.position.set(0,-.115,L*.2);ARM.L.position.set(p[0],p[1],p[2])}const pHit=new THREE.Mesh(new THREE.BoxGeometry(.9,1.8,.9),hbM),ray3=new THREE.Raycaster();S.add(pHit);
